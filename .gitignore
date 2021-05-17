@@ -1,0 +1,14 @@
+*.log
+*.pot
+*.pyc
+secret_const.py
+build/**
+
+__pycache__/
+local_settings.py
+db.sqlite3
+media
+dist/
+*.egg-info/
+.idea
+.DS_Store
