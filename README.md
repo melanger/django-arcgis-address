@@ -13,6 +13,14 @@ Django Address is a set of models and methods for working with postal addresses.
  * Python (3.9)
  * Django (3.0)
 
+# Update Select2 library
+
+```
+cp node_modules/select2/dist/js/select2.min.js address/static/js/
+cp -r node_modules/select2/dist/js/i18n/ address/static/js/
+cp node_modules/select2/dist/css/select2.min.css address/static/css/
+```
+
 # Installation
 
 ```bash
@@ -29,11 +37,12 @@ INSTALLED_APPS = [
 ]
 ```
 
-You can either store your ESRI API key in an environment variable as `ESRI_API_KEY` or you can
+You can either store your ESRI API key in an environment variable as `ARCGIS_SERVER_API_KEY` and `ARCGIS_CLIENT_API_KEY` or you can
  specify the key in `settings.py`. If you have an environment variable set it will override what you put in settings.py.
  
 ```
-ESRI_API_KEY = '}zIMqHDs"4CJs$l[G.+XHSJ)Wq[?mVgr'
+ARCGIS_SERVER_API_KEY = '}zIMqHDs"4CJs$l[G.+XHSJ)Wq[?mVgr'
+ARCGIS_CLIENT_API_KEY = '}zIMqHDs"4CJs$l[G.+XHSJ)Wq[?mVgr'
 ```
 
 # The Model

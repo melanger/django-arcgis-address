@@ -1,32 +1,42 @@
 $(function () {
-	$('input.address').each(function () {
-		var self = $(this);
-		var cmps = $('#' + self.attr('name') + '_components');
-		var fmtd = $('input[name="' + self.attr('name') + '_formatted"]');
-		self.geocomplete({
-			details: cmps,
-			detailsAttribute: 'data-geo'
-		}).change(function () {
-			if (self.val() != fmtd.val()) {
-				var cmp_names = [
-					'country',
-					'country_code',
-					'locality',
-					'postal_code',
-					'postal_town',
-					'route',
-					'street_number',
-					'state',
-					'state_code',
-					'formatted',
-					'latitude',
-					'longitude',
-				];
-
-				for (var ii = 0; ii < cmp_names.length; ++ii) {
-					$('input[name="' + self.attr('name') + '_' + cmp_names[ii] + '"]').val('');
-				}
-			}
-		});
+	$('select.address').each(function() {
+		const select = $(this);
+		const defaultValue = select.data('select2-default-value');
+		const option = new Option(defaultValue, defaultValue, true, true);
+    	select.append(option);
 	});
+	const apiKey = $('select.address').data('select2-api-key');
+	$('select.address').select2({
+		minimumInputLength: 5,
+		allowClear: true,
+		language: 'cs',
+		placeholder: '---',
+		ajax: {
+			url: 'https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/suggest',
+			dataType: 'json',
+			data: function (params) {
+				var query = {
+					text: params.term,
+					category: 'Address',
+					token: apiKey,
+					f: 'json',
+				};
+				return query;
+			},
+			processResults: function (data) {
+				return {
+					results: data.suggestions.map((suggestion) => ({
+						text: suggestion.text,
+						id: suggestion.text,
+					})),
+					pagination: {
+						more: false,
+					},
+				};
+			},
+			delay: 250,
+			cache: true
+		},
+	});
+
 });
