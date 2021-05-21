@@ -46,10 +46,9 @@ class AddressWidget(forms.Select):
         extra = "" if settings.DEBUG else ".min"
         jquery_paths = [
             "{}jquery{}.js".format(vendor, extra),
-            "jquery.init.js",
         ]
         jquery_paths = ["admin/js/{}".format(path) for path in jquery_paths]
-        js.extend(jquery_paths)
+        js = jquery_paths + js
 
         css = {"all": ("css/select2.min.css", "address/css/address.css")}
 
