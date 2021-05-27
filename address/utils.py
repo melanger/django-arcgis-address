@@ -23,7 +23,7 @@ def geocode(raw):
         return raw
 	arcgis_params = {
         "address": raw,
-        "outFields": ",".join([c[1] for c in self.components]),
+        "outFields": ",".join([c[1] for c in components]),
         "f": "json",
         "token": settings.ARCGIS_SERVER_API_KEY,
     }
@@ -33,11 +33,11 @@ def geocode(raw):
     ).json()
     if not "candidates" in r or len(r["candidates"]) < 1:
         return raw
-    # ad = dict([(c[0], data.get(name + "_" + c[0], "")) for c in self.components])
+    # ad = dict([(c[0], data.get(name + "_" + c[0], "")) for c in components])
     ad = dict(
         [
             (c[0], r["candidates"][0]["attributes"].get(c[1], ""))
-            for c in self.components
+            for c in components
         ]
     )
     ad["raw"] = raw
