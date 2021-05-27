@@ -18,10 +18,11 @@ components = [
     ("longitude", "Y"),
 ]
 
+
 def geocode(raw):
-	if not raw:
+    if not raw:
         return raw
-	arcgis_params = {
+    arcgis_params = {
         "address": raw,
         "outFields": ",".join([c[1] for c in components]),
         "f": "json",
@@ -35,10 +36,7 @@ def geocode(raw):
         return raw
     # ad = dict([(c[0], data.get(name + "_" + c[0], "")) for c in components])
     ad = dict(
-        [
-            (c[0], r["candidates"][0]["attributes"].get(c[1], ""))
-            for c in components
-        ]
+        [(c[0], r["candidates"][0]["attributes"].get(c[1], "")) for c in components]
     )
     ad["raw"] = raw
     return ad
