@@ -1,12 +1,12 @@
-$(function () {
-	$('select.address').each(function() {
-		const select = $(this);
+django.jQuery(function () {
+	django.jQuery('select.address').each(function() {
+		const select = django.jQuery(this);
 		const defaultValue = select.data('select2-default-value');
 		const option = new Option(defaultValue, defaultValue, true, true);
     	select.append(option);
 	});
-	const apiKey = $('select.address').data('select2-api-key');
-	$('select.address').select2({
+	const apiKey = django.jQuery('select.address').data('select2-api-key');
+	django.jQuery('select.address').select2({
 		minimumInputLength: 5,
 		allowClear: true,
 		language: 'cs',
