@@ -21,10 +21,19 @@ class AddressWidget(forms.Select):
         """Media defined as a dynamic property instead of an inner class."""
 
         js = [
+            "admin/js/vendor/jquery/jquery.min.js",
+            "admin/js/vendor/select2/select2.full.min.js",
+            "admin/js/vendor/select2/i18n/cs.js",
+            "admin/js/jquery.init.js",
             "address/js/address.js",
         ]
 
-        css = {"all": ("address/css/address.css")}
+        css = {
+            "all": [
+                "admin/css/vendor/select2/select2.min.css",
+                "address/css/address.css",
+            ]
+        }
 
     def __init__(self, *args, **kwargs):
         attrs = kwargs.get("attrs", {})
