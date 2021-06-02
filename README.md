@@ -10,16 +10,9 @@ Based on [django-address](https://github.com/furious-luke/django-address) but us
 Django Address is a set of models and methods for working with postal addresses.
 
 # Requirements
- * Python (3.9)
- * Django (3.0)
 
-# Update Select2 library
-
-```
-cp node_modules/select2/dist/js/select2.min.js address/static/js/
-cp -r node_modules/select2/dist/js/i18n/ address/static/js/
-cp node_modules/select2/dist/css/select2.min.css address/static/css/
-```
+* Python (3.9)
+* Django (3.0) with a theme which includes jQuery (as django.jQuery) and the select2 library
 
 # Installation
 
