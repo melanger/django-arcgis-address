@@ -14,8 +14,8 @@ components = [
     # TODO: ("region", "Subregion"), # okres
     ("state_code", "RegionAbbr"),
     ("formatted", "LongLabel"),
-    ("latitude", "X"),
-    ("longitude", "Y"),
+    ("longitude", "X"),
+    ("latitude", "Y"),
 ]
 
 
