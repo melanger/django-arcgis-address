@@ -4,33 +4,43 @@ from address.models import *
 
 
 class UnidentifiedListFilter(SimpleListFilter):
-    title = 'unidentified'
-    parameter_name = 'unidentified'
+    title = "unidentified"
+    parameter_name = "unidentified"
 
     def lookups(self, request, model_admin):
-        return (('unidentified', 'unidentified'),)
+        return (("unidentified", "unidentified"),)
 
     def queryset(self, request, queryset):
-        if self.value() == 'unidentified':
+        if self.value() == "unidentified":
             return queryset.filter(locality=None)
 
 
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
-    search_fields = ('name', 'code')
+    search_fields = ("name", "code")
 
 
 @admin.register(State)
 class StateAdmin(admin.ModelAdmin):
-    search_fields = ('name', 'code')
+    search_fields = ("name", "code")
+
+
+@admin.register(District)
+class DistrictAdmin(admin.ModelAdmin):
+    search_fields = ("name",)
 
 
 @admin.register(Locality)
 class LocalityAdmin(admin.ModelAdmin):
-    search_fields = ('name', 'postal_code')
+    search_fields = ("name", "postal_code")
+
+
+@admin.register(Sublocality)
+class SublocalityAdmin(admin.ModelAdmin):
+    search_fields = ("name",)
 
 
 @admin.register(Address)
 class AddressAdmin(admin.ModelAdmin):
-    search_fields = ('street_number', 'route', 'raw')
+    search_fields = ("street_number", "route", "raw")
     list_filter = (UnidentifiedListFilter,)

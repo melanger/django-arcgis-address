@@ -7,11 +7,10 @@ components = [
     ("locality", "City"),
     ("sublocality", "Nbrhd"),
     ("postal_code", "Postal"),
-    ("postal_town", "no_postal_town"),
     ("route", "StName"),
     ("street_number", "AddNum"),
-    ("state", "Region"),  # kraj
-    # TODO: ("region", "Subregion"), # okres
+    ("state", "Region"),
+    ("district", "Subregion"),
     ("state_code", "RegionAbbr"),
     ("formatted", "LongLabel"),
     ("longitude", "X"),

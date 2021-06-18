@@ -48,9 +48,9 @@ into components.
 
 It's currently assumed any address is represent-able using four components:
 country, state, locality and street address. In addition, country code, state
-code and postal code may be stored, if they exist.
+code, postal code, district and sublocality may be stored, if they exist.
 
-There are four Django models used:
+There are six Django models used:
 
 ```
   Country
@@ -62,16 +62,26 @@ There are four Django models used:
     code
     country -> Country
 
+  District
+    name
+    state -> State
+
   Locality
     name
     postal_code
     state -> State
+    district -> District
+
+  Sublocality
+    name
+    locality -> Locality
 
   Address
     raw
     street_number
     route
     locality -> Locality
+    sublocality -> Sublocality
 ```
 
 # Address Field
@@ -125,9 +135,11 @@ The structure of the address components is as follows:
     'street_number': '1',
     'route': 'Somewhere Ave',
     'locality': 'Northcote',
+    'sublocality': 'Northcote pt',
     'postal_code': '3070',
     'state': 'Victoria',
     'state_code': 'VIC',
+    'district': 'Dst',
     'country': 'Australia',
     'country_code': 'AU'
   }
@@ -152,9 +164,7 @@ all components may be accessed naturally through the object. For example:
 
 ## Forms
 
-Included is a form field for simplifying address entry. A Google maps
-auto-complete is performed in the browser and passed to the view. If
-the lookup fails the raw entered value is used.
+Included is a form field for simplifying address entry. [ArcGIS autosuggest](https://developers.arcgis.com/documentation/mapping-apis-and-services/search/autosuggest/) is performed in the browser and passed to the view. If the lookup fails the raw entered value is used.
 
 ## Partial Example
 
