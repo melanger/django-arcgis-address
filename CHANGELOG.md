@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/melanger/django-arcgis-address/compare/v1.0.0...v1.0.1) (2021-09-24)
+
+
+### Bug Fixes
+
+* release to pypi ([1a68e15](https://github.com/melanger/django-arcgis-address/commit/1a68e15f848e37a14c95fd27ce72762559cb5182))
+
 # 1.0.0 (2021-09-23)
 
 
