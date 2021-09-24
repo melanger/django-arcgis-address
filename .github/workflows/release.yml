@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: 3.8
       - name: Install setuptools
-        run: python3 -m pip3 install --upgrade setuptools wheel twine
+        run: python3 -m pip install --upgrade setuptools wheel twine
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2
         with:
