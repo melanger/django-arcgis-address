@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/melanger/django-arcgis-address/compare/v1.0.1...v1.1.0) (2022-01-05)
+
+
+### Features
+
+* custom category filtering ([5993cfb](https://github.com/melanger/django-arcgis-address/commit/5993cfb070c97ba29df519efb68a64d2bf7cce93)), closes [#11](https://github.com/melanger/django-arcgis-address/issues/11)
+
 ## [1.0.1](https://github.com/melanger/django-arcgis-address/compare/v1.0.0...v1.0.1) (2021-09-24)
 
 
