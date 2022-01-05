@@ -6,6 +6,7 @@ django.jQuery(function () {
     	select.append(option);
 	});
 	const apiKey = django.jQuery('select.address').data('select2-api-key');
+	const categories = django.jQuery('select.address').data('select2-filter-categories')
 	django.jQuery('select.address').select2({
 		minimumInputLength: 5,
 		allowClear: true,
@@ -17,7 +18,7 @@ django.jQuery(function () {
 			data: function (params) {
 				var query = {
 					text: params.term,
-					category: 'Address',
+					category: categories,
 					token: apiKey,
 					f: 'json',
 				};
