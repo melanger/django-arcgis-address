@@ -38,6 +38,12 @@ ARCGIS_SERVER_API_KEY = '}zIMqHDs"4CJs$l[G.+XHSJ)Wq[?mVgr'
 ARCGIS_CLIENT_API_KEY = '}zIMqHDs"4CJs$l[G.+XHSJ)Wq[?mVgr'
 ```
 
+There is also possibility to customize [ARCGIS category filtering](https://developers.arcgis.com/rest/geocode/api-reference/geocoding-category-filtering.htm) via list variable `ARCGIS_ADDRESS_CATEGORIES`. For example to filter out only adresses, cities and countries, you can set following:
+
+```
+ARCGIS_ADDRESS_CATEGORIES = ['Address', 'City', 'Country']
+```
+
 # The Model
 
 The rationale behind the model structure is centered on trying to make

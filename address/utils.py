@@ -27,6 +27,10 @@ def geocode(raw):
         "f": "json",
         "token": settings.ARCGIS_SERVER_API_KEY,
     }
+
+    if settings.ARCGIS_ADDRESS_CATEGORIES:
+        arcgis_params["category"] = ",".join(settings.ARCGIS_ADDRESS_CATEGORIES)
+
     r = requests.get(
         "https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates",
         params=arcgis_params,

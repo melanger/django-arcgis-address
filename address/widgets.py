@@ -59,6 +59,11 @@ class AddressWidget(forms.Select):
         # Generate the elements. We should create a visible field for the raw.
         attrs["data-select2-default-value"] = ad.get("raw", "")
         attrs["data-select2-api-key"] = settings.ARCGIS_CLIENT_API_KEY
+        attrs["data-select2-filter-categories"] = (
+            ",".join(settings.ARCGIS_ADDRESS_CATEGORIES)
+            if hasattr(settings, "ARCGIS_ADDRESS_CATEGORIES")
+            else "Address"
+        )
         elems = [
             super(AddressWidget, self).render(
                 name, escape(ad.get("raw", "")), attrs, **kwargs
